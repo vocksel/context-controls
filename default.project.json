@@ -10,6 +10,13 @@
 			}
 		},
 
+		"Players": {
+			"$className": "Players",
+			"$properties": {
+				"CharacterAutoLoads": false
+			}
+		},
+
 		"ReplicatedStorage": {
             "$className": "ReplicatedStorage",
             "ContextControls": {
@@ -24,10 +31,16 @@
             }
 		},
 
-		"ServerScriptService": {
-			"$className": "ServerScriptService",
+		"StarterPlayer": {
+			"$className": "StarterPlayer",
+			"StarterPlayerScripts": {
+				"$className": "StarterPlayerScripts",
 			"TestEz": {
 				"$path": "modules/TestEz/lib"
+				},
+				"TestRunner": {
+					"$path": "tests.client.lua"
+				},
 			}
 		}
 	}
