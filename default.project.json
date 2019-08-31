@@ -35,12 +35,16 @@
 			"$className": "StarterPlayer",
 			"StarterPlayerScripts": {
 				"$className": "StarterPlayerScripts",
-			"TestEz": {
-				"$path": "modules/TestEz/lib"
+				"TestEz": {
+					"$path": "modules/TestEz/lib"
 				},
 				"TestRunner": {
 					"$path": "tests.client.lua"
 				},
+
+				"Examples": {
+					"$path": "examples"
+				}
 			}
 		}
 	}
