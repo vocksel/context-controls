@@ -1,0 +1,34 @@
+{
+	"name": "ContextControls",
+	"tree": {
+		"$className": "DataModel",
+
+		"HttpService": {
+			"$className": "HttpService",
+			"$properties": {
+				"HttpEnabled": true
+			}
+		},
+
+		"ReplicatedStorage": {
+            "$className": "ReplicatedStorage",
+            "ContextControls": {
+                "$path": "lib/",
+
+                "packages": {
+					"$className": "Folder",
+                    "t": {
+						"$path": "modules/t/lib"
+					}
+                }
+            }
+		},
+
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"TestEz": {
+				"$path": "modules/TestEz/lib"
+			}
+		}
+	}
+}

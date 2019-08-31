@@ -1,0 +1,5 @@
+/*.rbxlx
+/*.rbxmx
+
+# This is where you can store custom configuration settings for the game.
+src/shared/configLocal.lua
