@@ -1,5 +1,5 @@
-local Action = require(script.Action)
-local types = require(script.types)
+local Action = require(script.Parent.Action)
+local types = require(script.Parent.types)
 
 local function createAction(actionObject)
 	assert(types.ActionObject(actionObject))
