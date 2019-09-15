@@ -10,12 +10,8 @@ types.InputType = t.union(
 
 types.ActionObject = t.interface({
 	name = t.string,
-	inputTypes = t.array(t.union(
-		t.enum(Enum.KeyCode),
-		t.enum(Enum.UserInputType)
-	)),
-	callback = t.callback,
-
+	inputTypes = t.optional(t.array(types.InputType)),
+	callback = t.optional(t.callback),
 	priority = t.optional(t.integer),
 	inputState = t.optional(t.enum(Enum.UserInputState)),
 	mobileButton = t.optional(t.Instance),
