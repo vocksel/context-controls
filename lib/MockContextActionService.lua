@@ -6,7 +6,7 @@
 	certain everything will work in a live game.
 ]]
 
-local t = require(script.Parent.packages.t)
+local t = require(script.Parent.t)
 local types = require(script.Parent.types)
 
 local MockContextActionService = {

@@ -20,14 +20,7 @@
 		"ReplicatedStorage": {
             "$className": "ReplicatedStorage",
             "ContextControls": {
-                "$path": "lib/",
-
-                "packages": {
-					"$className": "Folder",
-                    "t": {
-						"$path": "modules/t/lib"
-					}
-                }
+                "$path": "lib/"
             }
 		},
 
