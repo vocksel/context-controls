@@ -6,6 +6,8 @@ binding actions, along with flexible mobile button support.
 ## Getting Started
 
 ```lua
+local ContextControls = require(game.ReplicatedStorage.ContextControls)
+
 local action = ContextControls.createAction({
     name = "foo",
     inputTypes = {
@@ -115,10 +117,6 @@ callback for both, and leaves it up to the user to filter out the one they want.
 
 Instead of having a to check `if input.UserInputState == Enum.UserInputState.Foo`
 in your callback, you can simply set this property.
-
-**mobileButton: GuiObject (optional)**
-
-The mobile touch button that will allow the user
 
 **priority: integer (optional)**
 
