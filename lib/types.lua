@@ -5,6 +5,7 @@ local types = {}
 types.InputType = t.union(
 	t.enum(Enum.KeyCode),
 	t.enum(Enum.UserInputType),
+	t.enum(Enum.PlayerActions),
 	t.string
 )
 

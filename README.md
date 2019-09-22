@@ -100,7 +100,7 @@ The name of the action.
 
 The function that gets run when the action is triggered.
 
-**inputTypes: Array<KeyCode|UserInputType|string>**
+**inputTypes: Array<KeyCode|UserInputType|PlayerActions|string>**
 
 The various input types that the action responds to.
 
@@ -146,7 +146,7 @@ action:setCallback(function()
 end)
 ```
 
-**setInputTypes(inputTypes: Array<KeyCode|UserInputType|string>): void**
+**setInputTypes(inputTypes: Array<KeyCode|UserInputType|PlayerActions|string>): void**
 
 Sets the input types that the action will be triggered for.
 
