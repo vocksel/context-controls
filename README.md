@@ -45,6 +45,24 @@ local action = Action.fromObject({
 })
 ```
 
+**ContextControls.getTouchGui(): GuiObject | nil**
+
+Returns the LocalPlayer's TouchGui if they are on a touch enabled device, nil otherwise.
+
+```lua
+local touchGui = ContextControls.getTouchGui()
+print(touchGui:GetFullName()) -- Players.Player1.PlayerGui.TouchGui
+```
+
+**ContextControls.getJumpButton(): GuiObject | nil**
+
+Returns the LocalPlayer's JumpButton if they are on a touch enabled device, nil otherwise.
+
+```lua
+local jumpButton = ContextControls.getJumpButton()
+print(jumpButton:GetFullName()) -- ...TouchGui.TouchControlFrame.JumpButton
+```
+
 ## Action
 
 This is the class that wraps around ContextActionService to provide a better API
