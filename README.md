@@ -14,7 +14,7 @@ local action = ContextControls.createAction({
         Enum.KeyCode.E,
         Enum.KeyCode.ButtonX,
     },
-    callback = function(input)
+    callback = function(input: InputObject)
         print("Hello world!")
     end,
 })
@@ -39,7 +39,7 @@ local action = Action.fromObject({
 		Enum.KeyCode.E,
 		Enum.UserInputType.MouseButton1,
 	},
-	callback = function()
+	callback = function(input: InputObject)
 		print("Hello, world!")
 	end
 })
@@ -84,7 +84,7 @@ action:setInputTypes({
 	Enum.UserInputType.MouseButton1,
 })
 
-action:setCallback(function()
+action:setCallback(function(input: InputObject)
 	print("Hello, world!")
 end)
 ```
@@ -104,7 +104,7 @@ local action = Action.fromObject({
 		Enum.KeyCode.E,
 		Enum.UserInputType.MouseButton1,
 	},
-	callback = function()
+	callback = function(input: InputObject)
 		print("Hello, world!")
 	end
 })
@@ -157,7 +157,7 @@ types is activated by the user.
 ```lua
 local action = Action.new("foo")
 
-action:setCallback(function()
+action:setCallback(function(input: InputObject)
 	print("Hello world!")
 end)
 ```
