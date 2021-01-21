@@ -225,3 +225,29 @@ action:bind()
 -- later
 action:unbind()
 ```
+
+**addTrigger(trigger: ProximityPrompt, callback: function): void**
+
+Automatically binds and unbinds the action when in range of the ProximityPrompt
+acting as a trigger.
+
+With this method, you do not need to call `bind()`, `unbind()`, or
+`setCallback()`. These methods are all handled automatically based on
+[PromptShown](https://developer.roblox.com/en-us/api-reference/event/ProximityPrompt/PromptShown)
+and [PromptHidden](https://developer.roblox.com/en-us/api-reference/event/ProximityPrompt/PromptHidden)
+firing.
+
+```lua
+local action = Action.new("foo")
+action:setInputTypes(...)
+
+action:addTrigger(trigger, function(input: InputObject)
+	print("Hello world!")
+end)
+```
+
+You can add as many triggers as you want for the same action, and they will all
+take control of binding and unbinding it.
+
+If you use this method, it is recommended that you do not manually bind and
+unbind the action, as this could lead to unexpected results.

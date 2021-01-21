@@ -86,4 +86,21 @@ function Action:unbind()
 	self.isBound = false
 end
 
+function Action:addTrigger(trigger: ProximityPrompt, callback: () -> nil)
+	trigger.PromptShown:Connect(function()
+		if self.isBound then
+			self:unbind()
+		end
+
+		self:setCallback(callback)
+		self:bind()
+	end)
+
+	trigger.PromptHidden:Connect(function()
+		if self.isBound then
+			self:unbind()
+		end
+	end)
+end
+
 return Action
