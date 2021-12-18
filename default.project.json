@@ -1,44 +1,6 @@
 {
-	"name": "ContextControls",
-	"tree": {
-		"$className": "DataModel",
-
-		"HttpService": {
-			"$className": "HttpService",
-			"$properties": {
-				"HttpEnabled": true
-			}
-		},
-
-		"Players": {
-			"$className": "Players",
-			"$properties": {
-				"CharacterAutoLoads": false
-			}
-		},
-
-		"ReplicatedStorage": {
-            "$className": "ReplicatedStorage",
-            "ContextControls": {
-                "$path": "lib/"
-            }
-		},
-
-		"StarterPlayer": {
-			"$className": "StarterPlayer",
-			"StarterPlayerScripts": {
-				"$className": "StarterPlayerScripts",
-				"TestEz": {
-					"$path": "modules/TestEz/lib"
-				},
-				"TestRunner": {
-					"$path": "tests.client.lua"
-				},
-
-				"Examples": {
-					"$path": "examples"
-				}
-			}
-		}
-	}
+  "name": "context-controls",
+  "tree": {
+    "$path": "src"
+  }
 }

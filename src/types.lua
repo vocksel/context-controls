@@ -2,12 +2,7 @@ local t = require(script.Parent.t)
 
 local types = {}
 
-types.InputType = t.union(
-	t.enum(Enum.KeyCode),
-	t.enum(Enum.UserInputType),
-	t.enum(Enum.PlayerActions),
-	t.string
-)
+types.InputType = t.union(t.enum(Enum.KeyCode), t.enum(Enum.UserInputType), t.enum(Enum.PlayerActions), t.string)
 
 types.ActionObject = t.interface({
 	name = t.string,
@@ -18,9 +13,6 @@ types.ActionObject = t.interface({
 	mobileButton = t.optional(t.Instance),
 })
 
-types.ActionPriority = t.union(
-	t.enum(Enum.ContextActionPriority),
-	t.integer
-)
+types.ActionPriority = t.union(t.enum(Enum.ContextActionPriority), t.integer)
 
 return types

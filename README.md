@@ -3,7 +3,23 @@
 Wrapper around ContextActionService that provides a clean API for creating and
 binding actions, along with flexible mobile button support.
 
-## Getting Started
+## Installation
+
+### Wally
+
+Add the following to your `wally.toml`:
+
+```
+[dependencies]
+ContextControls = "vocksel/context-controls@v1.0.0
+```
+
+### Model File
+
+* Download a copy of the rbxm from the [releases page](https://github.com/vocksel/context-controls/releases/latest) under the Assets section. 
+* Drag and drop the file into Roblox Studio to add it to your experience.
+
+## Usage
 
 ```lua
 local ContextControls = require(game.ReplicatedStorage.ContextControls)
@@ -251,3 +267,7 @@ take control of binding and unbinding it.
 
 If you use this method, it is recommended that you do not manually bind and
 unbind the action, as this could lead to unexpected results.
+
+## License
+
+[MIT License](LICENSE)

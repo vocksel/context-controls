@@ -1,0 +1,27 @@
+{
+  "name": "context-controls (dev)",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "DevPackages": {
+        "$path": "DevPackages"
+      },
+      "ContextControls": {
+        "$path": "src"
+      }
+    },
+    "ServerScriptService": {
+      "Tests": {
+        "$path": "tests"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "Example": {
+          "$path": "example"
+        }
+      }
+    }
+  }
+}

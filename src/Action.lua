@@ -66,7 +66,7 @@ function Action:bindAtPriority(priority)
 	assert(self.inputTypes, "No input types found, run setInputTypes() first")
 
 	local function callback(_, inputState, inputObject)
-		if (not self.inputState) or (self.inputState and inputState == self.inputState) then
+		if not self.inputState or (self.inputState and inputState == self.inputState) then
 			return self.callback(inputObject)
 		end
 	end
