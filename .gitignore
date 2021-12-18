@@ -1,5 +1,8 @@
-/*.rbxlx
-/*.rbxmx
+# Rojo
+/*.rbxl*
+/*.rbxm*
 
-# This is where you can store custom configuration settings for the game.
-src/shared/configLocal.lua
+# Wally
+/Packages
+/DevPackages
+wally.lock
