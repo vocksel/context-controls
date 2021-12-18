@@ -2,6 +2,9 @@
 /*.rbxl*
 /*.rbxm*
 
+# Selene
+roblox.toml
+
 # Wally
 /Packages
 /DevPackages
