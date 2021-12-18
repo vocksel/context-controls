@@ -25,8 +25,9 @@ return function()
 			local callCount = 0
 
 			local function callback(input)
-				expect(input.UserInputState == Enum.UserInputState.Begin
-					or input.UserInputState == Enum.UserInputState.End)
+				expect(
+					input.UserInputState == Enum.UserInputState.Begin or input.UserInputState == Enum.UserInputState.End
+				)
 
 				callCount = callCount + 1
 			end

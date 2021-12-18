@@ -19,7 +19,7 @@ function MockContextActionService:BindActionAtPriority(name, callback, createTou
 		callback = callback,
 		createTouchButton = createTouchButton,
 		priority = priority,
-		inputTypes = { ... }
+		inputTypes = { ... },
 	}
 end
 
@@ -41,16 +41,13 @@ function MockContextActionService:GetActionsForInputType(inputType)
 	return actions
 end
 
-local SimulateInputCheck = t.tuple(
-	types.InputType,
-	t.optional(t.array(t.enum(Enum.UserInputState)))
-)
+local SimulateInputCheck = t.tuple(types.InputType, t.optional(t.array(t.enum(Enum.UserInputState))))
 function MockContextActionService:SimulateInput(inputType, inputStates)
 	assert(SimulateInputCheck(inputType, inputStates))
 
 	inputStates = inputStates or {
 		Enum.UserInputState.Begin,
-		Enum.UserInputState.End
+		Enum.UserInputState.End,
 	}
 
 	local actions = self:GetActionsForInputType(inputType)

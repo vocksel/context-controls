@@ -6,7 +6,9 @@ return function()
 
 	local MOCK_PRIORITY = Enum.ContextActionPriority.Default.Value
 
-	local MOCK_CALLBACK = function() return true end
+	local MOCK_CALLBACK = function()
+		return true
+	end
 	local MOCK_INPUT_TYPES = {
 		Enum.KeyCode.E,
 		Enum.KeyCode.ButtonB,
@@ -46,7 +48,7 @@ return function()
 				name = "foo",
 				mobileButton = MOCK_MOBILE_BUTTON,
 				callback = MOCK_CALLBACK,
-				inputTypes = MOCK_INPUT_TYPES
+				inputTypes = MOCK_INPUT_TYPES,
 			})
 
 			expect(action.name).to.equal("foo")
@@ -214,9 +216,7 @@ return function()
 			expect(action.isBound).to.equal(false)
 		end)
 
-		it("should unbind the action from ContextActionService", function()
-
-		end)
+		it("should unbind the action from ContextActionService", function() end)
 
 		it("should error if the action is not bound", function()
 			local action = Action.new("foo")
