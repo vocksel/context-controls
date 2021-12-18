@@ -1,5 +1,7 @@
 # ContextControls
 
+[![CI](https://github.com/vocksel/context-controls/actions/workflows/ci.yml/badge.svg)](https://github.com/vocksel/context-controls/actions/workflows/ci.yml)
+
 Wrapper around ContextActionService that provides a clean API for creating and
 binding actions, along with flexible mobile button support.
 
