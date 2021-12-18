@@ -19,7 +19,7 @@
       "StarterPlayerScripts": {
         "$className": "StarterPlayerScripts",
         "Example": {
-          "$path": "examples"
+          "$path": "example"
         }
       }
     }
