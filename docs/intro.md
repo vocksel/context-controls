@@ -16,7 +16,7 @@ Add the following to your `wally.toml` and run `wally install` to download the p
 
 ```toml
 [dependencies]
-ContextControls = "vocksel/context-controls@1.0.0"
+ContextControls = "vocksel/context-controls@1.0.1"
 ```
 
 Make sure the resulting `Packages` folder is synced into your experience using a tool like [Rojo](https://github.com/rojo-rbx/rojo/).
