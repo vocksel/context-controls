@@ -54,4 +54,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run tests
-        run: run-in-roblox --place studio-tests.rbxlx --script tests/spec.lua
+        run: run-in-roblox --place studio-tests.rbxlx --script tests/init.server.lua
