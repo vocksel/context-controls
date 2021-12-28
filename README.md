@@ -34,7 +34,7 @@ Add the following to your `wally.toml`:
 
 ```
 [dependencies]
-ContextControls = "vocksel/context-controls@1.0.1
+ContextControls = "vocksel/context-controls@1.0.1"
 ```
 
 ### Model File
