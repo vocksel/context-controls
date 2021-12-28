@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-beta.9">
+<title data-react-helmet="true">Action | context-controls</title><meta data-react-helmet="true" property="og:title" content="Action | context-controls"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="description" content="This is the class that wraps around ContextActionService to provide a better
+API to work with.
+
+You should typically use `ContextControls.createAction()`, but you can also
+instantiate an Action instance manually using `Action.new()` or
+`Action.fromObject()` which are documented below."><meta data-react-helmet="true" property="og:description" content="This is the class that wraps around ContextActionService to provide a better
+API to work with.
+
+You should typically use `ContextControls.createAction()`, but you can also
+instantiate an Action instance manually using `Action.new()` or
+`Action.fromObject()` which are documented below."><meta data-react-helmet="true" property="og:url" content="https://vocksel.github.io/context-controls/api/Action"><meta data-react-helmet="true" name="docusaurus_locale" content="en"><meta data-react-helmet="true" name="docusaurus_tag" content="default"><link data-react-helmet="true" rel="canonical" href="https://vocksel.github.io/context-controls/api/Action"><link data-react-helmet="true" rel="alternate" href="https://vocksel.github.io/context-controls/api/Action" hreflang="en"><link data-react-helmet="true" rel="alternate" href="https://vocksel.github.io/context-controls/api/Action" hreflang="x-default"><link rel="stylesheet" href="/context-controls/assets/css/styles.302001c7.css">
+<link rel="preload" href="/context-controls/assets/js/runtime~main.eecc9975.js" as="script">
+<link rel="preload" href="/context-controls/assets/js/main.f9b04f20.js" as="script">
+</head>
+<body>
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div><a href="#" class="skipToContent_1oUP">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/context-controls/"><b class="navbar__title">context-controls</b></a><a class="navbar__item navbar__link" href="/context-controls/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/context-controls/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/vocksel/context-controls" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link"><span>GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a><div class="toggle_71bT toggle_3Zt9 toggleDisabled_3cF-"><div class="toggleTrack_32Fl" role="button" tabindex="-1"><div class="toggleTrackCheck_3lV7"><span class="toggleIcon_O4iE">🌜</span></div><div class="toggleTrackX_S2yS"><span class="toggleIcon_O4iE">🌞</span></div><div class="toggleTrackThumb_xI_Z"></div></div><input type="checkbox" class="toggleScreenReader_28Tw" aria-label="Switch between dark and light mode"></div><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper docPageContainer_2Kz0"><div class="docPage_1bdk"><div class="docSidebarContainer_1ykS"><div class="sidebar_15mo"><nav class="menu thin-scrollbar menu_Bmed"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/context-controls/api/ContextControls">​Context​Controls</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/context-controls/api/Action">​Action</a></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_1CGd"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_3E-R"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div><main class="docMainContainer_28N5"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_3WPG"><div class="docItemContainer_3XDu"><article><div class="member_qHIL markdown"><div class="tocCollapsible_1PrD theme-doc-toc-mobile tocMobile_3ryM"><button type="button" class="clean-btn tocCollapsibleButton_2O1e">On this page</button></div><header><h1 class="docTitle_1ddc" style="text-decoration:none"><span style="display:inline-block">Action</span></h1><div class="luaClassTags_2Zrs"></div><div>
+<p>
+  This is the class that wraps around ContextActionService to provide a better
+  API to work with.
+</p>
+<p>
+  You should typically use <code>ContextControls.createAction()</code>, but you can also
+  instantiate an Action instance manually using <code>Action.new()</code> or
+  <code>Action.fromObject()</code> which are documented below.
+</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_31ik" id="types">Types<a aria-hidden="true" class="hash-link" href="#types" title="Direct link to heading">​</a></h2><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="InputTypes"><code style="text-decoration:none">InputTypes</code><a aria-hidden="true" class="hash-link" href="#InputTypes" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L21"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code class="purple__nFc">type</code> <code>InputTypes<!-- --> = </code> <code class="purple__nFc">{</code><code class="blue_2Afy">Enum.KeyCode</code><code class="op_1JtD"> | </code><code class="blue_2Afy">Enum.UserInputType</code><code class="op_1JtD"> | </code><code class="blue_2Afy">Enum.PlayerActions</code><code class="op_1JtD"> | </code><code class="blue_2Afy">string</code><code class="purple__nFc">}</code></div><div>
+<p>Valid input types that can be used for an Action.</p>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="ActionCallback"><code style="text-decoration:none">ActionCallback</code><a aria-hidden="true" class="hash-link" href="#ActionCallback" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L28"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code class="purple__nFc">type</code> <code>ActionCallback<!-- --> = </code> <code class="purple__nFc">(</code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/InputObject" target="_blank" rel="noopener noreferrer">InputObject<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="blue_2Afy">nil</code></div><div>
+<p>Signature of the callback that will be run when the Action is triggered.</p>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="ActionObject"><code style="text-decoration:none">ActionObject</code><a aria-hidden="true" class="hash-link" href="#ActionObject" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L35"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code class="purple__nFc">type</code> <code>ActionObject<!-- --> = </code> <code class="purple__nFc">{</code><div class="inset_2cJr"><code>name<!-- -->: </code><code class="blue_2Afy">string</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code>priority<!-- -->: </code><code class="blue_2Afy">Enum.ContextActionPriority?</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code>inputState<!-- -->: </code><code class="blue_2Afy">Enum.UserInputState?</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code>inputTypes<!-- -->: </code><code class="green_3LnD">{</code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/context-controls/api/Action#InputTypes">InputTypes</a></code><code class="green_3LnD">}</code><code class="blue_2Afy">?</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code>callback<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/context-controls/api/Action#ActionCallback">ActionCallback?</a></code><code class="purple__nFc">,</code></div><div class="inset_2cJr"></div><code class="purple__nFc">}</code></div><div>
+<p>Properties that can be set when constructing an Action from an object.</p>
+</div><h2 class="anchor anchorWithStickyNavbar_31ik" id="properties">Properties<a aria-hidden="true" class="hash-link" href="#properties" title="Direct link to heading">​</a></h2><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="name"><code style="text-decoration:none">name</code><a aria-hidden="true" class="hash-link" href="#name" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L53"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->.<!-- -->name<!-- -->:<!-- --> </code> <code class="blue_2Afy">string</code></div><div>
+<p>The name of the action.</p>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="inputTypes"><code style="text-decoration:none">inputTypes</code><a aria-hidden="true" class="hash-link" href="#inputTypes" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L60"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->.<!-- -->inputTypes<!-- -->:<!-- --> </code> <code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/context-controls/api/Action#InputTypes">InputTypes</a></code></div><div>
+<p>The various input types that the action responds to.</p>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="inputState"><code style="text-decoration:none">inputState</code><a aria-hidden="true" class="hash-link" href="#inputState" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L76"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->.<!-- -->inputState<!-- -->:<!-- --> </code> <code class="blue_2Afy">Enum.UserInputState</code></div><div>
+<p>A specific UserInputState that the callback responds to.</p>
+<p>
+  By default, the callback is called twice: once when the user starts
+  interacting, and again when they stop. This is because ContextActionService
+  does not use <code>InputBegan</code> or <code>InputEnd</code> events like UserInputService. It
+  triggers the callback for both, and leaves it up to the user to filter out
+  the one they want.
+</p>
+<p>
+  Instead of having to check <code>if input.UserInputState == Enum.UserInputState.Foo</code>
+  in your callback, you can simply set this property.
+</p>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="priority"><code style="text-decoration:none">priority</code><a aria-hidden="true" class="hash-link" href="#priority" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L84"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->.<!-- -->priority<!-- -->:<!-- --> </code> <code class="blue_2Afy">number</code></div><div>
+<p>
+  Sets the priority that ContextActionService will use for the action. By
+  default this is <code>Enum.ContextActionPriority.Default.Value</code>
+</p>
+</div><h2 class="anchor anchorWithStickyNavbar_31ik" id="functions">Functions<a aria-hidden="true" class="hash-link" href="#functions" title="Direct link to heading">​</a></h2><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="new"><code style="text-decoration:none">new</code><a aria-hidden="true" class="hash-link" href="#new" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L103"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->.</code><code class="green_3LnD">new</code><code>(</code><code>name<!-- -->: </code><code class="blue_2Afy">string</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/context-controls/api/Action">Action</a></code></div><div>
+<p>
+  Constructs an Action instance from a name. You then need to use the various
+  methods of this class to setup the callback, input types, and anything else
+  before binding.
+</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> action <span class="token operator">=</span> Action<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+
+action<span class="token punctuation">:</span><span class="token function">setInputTypes</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	Enum<span class="token punctuation">.</span>KeyCode<span class="token punctuation">.</span>E<span class="token punctuation">,</span>
+	Enum<span class="token punctuation">.</span>UserInputType<span class="token punctuation">.</span>MouseButton1<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+action<span class="token punctuation">:</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>input<span class="token punctuation">:</span> InputObject<span class="token punctuation">)</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello, world!"</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="fromObject"><code style="text-decoration:none">fromObject</code><a aria-hidden="true" class="hash-link" href="#fromObject" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L136"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->.</code><code class="green_3LnD">fromObject</code><code>(</code><code>actionObject<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/context-controls/api/Action#ActionObject">ActionObject</a></code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/context-controls/api/Action">Action</a></code></div><div>
+<p>
+  Constructs an Action from a table of properties. This allows you to setup
+  everything, such as the name, callback, and input types, without having to
+  call any methods.
+</p>
+<p>All of the properties listed above can be used here.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> action <span class="token operator">=</span> Action<span class="token punctuation">.</span><span class="token function">fromObject</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	name <span class="token operator">=</span> <span class="token string">"foo"</span><span class="token punctuation">,</span>
+	inputTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+		Enum<span class="token punctuation">.</span>KeyCode<span class="token punctuation">.</span>E<span class="token punctuation">,</span>
+		Enum<span class="token punctuation">.</span>UserInputType<span class="token punctuation">.</span>MouseButton1<span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	callback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>input<span class="token punctuation">:</span> InputObject<span class="token punctuation">)</span>
+		<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello, world!"</span><span class="token punctuation">)</span>
+	<span class="token keyword">end</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="setCallback"><code style="text-decoration:none">setCallback</code><a aria-hidden="true" class="hash-link" href="#setCallback" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L161"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->:</code><code class="green_3LnD">setCallback</code><code>(</code><code>callback<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/context-controls/api/Action#ActionCallback">ActionCallback</a></code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Sets the callback for the action.</p>
+<p>This is what gets called when one of the input types is activated by the user.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> action <span class="token operator">=</span> Action<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+
+action<span class="token punctuation">:</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>input<span class="token punctuation">:</span> InputObject<span class="token punctuation">)</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello world!"</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="setInputTypes"><code style="text-decoration:none">setInputTypes</code><a aria-hidden="true" class="hash-link" href="#setInputTypes" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L177"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->:</code><code class="green_3LnD">setInputTypes</code><code>(</code><code>inputTypes<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/context-controls/api/Action#InputTypes">InputTypes</a></code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Sets the input types that the action will be triggered for.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> action <span class="token operator">=</span> Action<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+
+action<span class="token punctuation">:</span><span class="token function">setInputTypes</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	Enum<span class="token punctuation">.</span>KeyCode<span class="token punctuation">.</span>E<span class="token punctuation">,</span>
+	Enum<span class="token punctuation">.</span>KeyCode<span class="token punctuation">.</span>ButtonX<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="bindAtPriority"><code style="text-decoration:none">bindAtPriority</code><a aria-hidden="true" class="hash-link" href="#bindAtPriority" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L199"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->:</code><code class="green_3LnD">bindAtPriority</code><code>(</code><code>priority<!-- -->: </code><code class="blue_2Afy">Enum.ContextActionPriority</code><code class="op_1JtD"> | </code><code class="blue_2Afy">number</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Binds the action at the given priority level.</p>
+<p>
+  From here, any of the input types being triggered will cause the callback to
+  be run.
+</p>
+<p>If the callback or input types are not set, this function will error.</p>
+<p>If the function is already bound, it will error.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> action <span class="token operator">=</span> Action<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+action<span class="token punctuation">:</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>
+action<span class="token punctuation">:</span><span class="token function">setInputTypes</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>
+
+action<span class="token punctuation">:</span><span class="token function">bindAtPriority</span><span class="token punctuation">(</span>Enum<span class="token punctuation">.</span>ContextActionPriority<span class="token punctuation">.</span>High<span class="token punctuation">.</span>Value<span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="bind"><code style="text-decoration:none">bind</code><a aria-hidden="true" class="hash-link" href="#bind" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L232"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->:</code><code class="green_3LnD">bind</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Binds the action at the same priority as the <code>priority</code> property.</p>
+<p>
+  From here, any of the input types being triggered will cause the callback to
+  be run.
+</p>
+<p>If the callback or input types are not set, this function will error.</p>
+<p>If the function is already bound, it will error.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> action <span class="token operator">=</span> Action<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+action<span class="token punctuation">:</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>
+action<span class="token punctuation">:</span><span class="token function">setInputTypes</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>
+
+action<span class="token punctuation">:</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="unbind"><code style="text-decoration:none">unbind</code><a aria-hidden="true" class="hash-link" href="#unbind" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L251"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->:</code><code class="green_3LnD">unbind</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>
+  Unbinds the action so that the callback will not be run when one of the
+  input types is triggered.
+</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> action <span class="token operator">=</span> Action<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+action<span class="token punctuation">:</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>
+action<span class="token punctuation">:</span><span class="token function">setInputTypes</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>
+
+action<span class="token punctuation">:</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- later</span>
+action<span class="token punctuation">:</span><span class="token function">unbind</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="addTrigger"><code style="text-decoration:none">addTrigger</code><a aria-hidden="true" class="hash-link" href="#addTrigger" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/vocksel/context-controls/blob/master/src/Action.lua#L282"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Action<!-- -->:</code><code class="green_3LnD">addTrigger</code><code>(</code><div class="inset_2cJr"><div><code>trigger<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/ProximityPrompt" target="_blank" rel="noopener noreferrer">ProximityPrompt<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>callback<!-- -->: </code><code class="purple__nFc">(</code><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="blue_2Afy">nil</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Automatically binds and unbinds the action when in range of a ProximityPrompt.</p>
+<p>
+  With this method, you do not need to call <code>bind()</code>, <code>unbind()</code>, or
+  <code>setCallback()</code>. These methods are all handled automatically based on the
+  <code>PromptShown</code> and <code>PromptHidden</code> events of the ProximityPrompt.
+</p>
+<div class="admonition admonition-caution alert alert--warning">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+        </svg></span>caution</h5>
+  </div>
+  <div class="admonition-content">
+    <p>
+      When using this method do not manually bind and unbind the action as this
+      can lead to the action getting unexpectedly stuck in bound/unbound states.
+    </p>
+  </div>
+</div>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> action <span class="token operator">=</span> Action<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+action<span class="token punctuation">:</span><span class="token function">setInputTypes</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>
+
+action<span class="token punctuation">:</span><span class="token function">addTrigger</span><span class="token punctuation">(</span>trigger<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>input<span class="token punctuation">:</span> InputObject<span class="token punctuation">)</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello world!"</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+</code></pre>
+<p>
+  You can add as many triggers as you want for the same action, and they will
+  all take control of binding and unbinding it.
+</p>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;new&quot;,
+            &quot;desc&quot;: &quot;Constructs an Action instance from a name. You then need to use the various\nmethods of this class to setup the callback, input types, and anything else\nbefore binding.\n\n```lua\nlocal action = Action.new(\&quot;foo\&quot;)\n\naction:setInputTypes({\n\tEnum.KeyCode.E,\n\tEnum.UserInputType.MouseButton1,\n})\n\naction:setCallback(function(input: InputObject)\n\tprint(\&quot;Hello, world!\&quot;)\nend)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;name&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Action\r\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 103,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;fromObject&quot;,
+            &quot;desc&quot;: &quot;Constructs an Action from a table of properties. This allows you to setup\neverything, such as the name, callback, and input types, without having to\ncall any methods.\n\nAll of the properties listed above can be used here.\n\n```lua\nlocal action = Action.fromObject({\n\tname = \&quot;foo\&quot;,\n\tinputTypes = {\n\t\tEnum.KeyCode.E,\n\t\tEnum.UserInputType.MouseButton1,\n\t},\n\tcallback = function(input: InputObject)\n\t\tprint(\&quot;Hello, world!\&quot;)\n\tend\n})\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;actionObject&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;ActionObject&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Action\r\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 136,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;setCallback&quot;,
+            &quot;desc&quot;: &quot;Sets the callback for the action.\n\nThis is what gets called when one of the input types is activated by the user.\n\n```lua\nlocal action = Action.new(\&quot;foo\&quot;)\n\naction:setCallback(function(input: InputObject)\n\tprint(\&quot;Hello world!\&quot;)\nend)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;callback&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;ActionCallback&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 161,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;setInputTypes&quot;,
+            &quot;desc&quot;: &quot;Sets the input types that the action will be triggered for.\n\n```lua\nlocal action = Action.new(\&quot;foo\&quot;)\n\naction:setInputTypes({\n\tEnum.KeyCode.E,\n\tEnum.KeyCode.ButtonX,\n})\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;inputTypes&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;InputTypes&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 177,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;bindAtPriority&quot;,
+            &quot;desc&quot;: &quot;Binds the action at the given priority level.\n\nFrom here, any of the input types being triggered will cause the callback to\nbe run.\n\nIf the callback or input types are not set, this function will error.\n\nIf the function is already bound, it will error.\n\n```lua\nlocal action = Action.new(\&quot;foo\&quot;)\naction:setCallback(...)\naction:setInputTypes(...)\n\naction:bindAtPriority(Enum.ContextActionPriority.High.Value)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;priority&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Enum.ContextActionPriority | number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 199,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;bind&quot;,
+            &quot;desc&quot;: &quot;Binds the action at the same priority as the `priority` property.\n\nFrom here, any of the input types being triggered will cause the callback to\nbe run.\n\nIf the callback or input types are not set, this function will error.\n\nIf the function is already bound, it will error.\n\n```lua\nlocal action = Action.new(\&quot;foo\&quot;)\naction:setCallback(...)\naction:setInputTypes(...)\n\naction:bind()\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 232,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;unbind&quot;,
+            &quot;desc&quot;: &quot;Unbinds the action so that the callback will not be run when one of the\ninput types is triggered.\n\n```lua\nlocal action = Action.new(\&quot;foo\&quot;)\naction:setCallback(...)\naction:setInputTypes(...)\n\naction:bind()\n\n-- later\naction:unbind()\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 251,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;addTrigger&quot;,
+            &quot;desc&quot;: &quot;Automatically binds and unbinds the action when in range of a ProximityPrompt.\n\nWith this method, you do not need to call `bind()`, `unbind()`, or\n`setCallback()`. These methods are all handled automatically based on the\n`PromptShown` and `PromptHidden` events of the ProximityPrompt.\n\n:::caution\nWhen using this method do not manually bind and unbind the action as this\ncan lead to the action getting unexpectedly stuck in bound/unbound states.\n:::\n\n```lua\nlocal action = Action.new(\&quot;foo\&quot;)\naction:setInputTypes(...)\n\naction:addTrigger(trigger, function(input: InputObject)\n\tprint(\&quot;Hello world!\&quot;)\nend)\n```\n\nYou can add as many triggers as you want for the same action, and they will\nall take control of binding and unbinding it.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;trigger&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;ProximityPrompt&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;callback&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;() -&gt; nil&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 282,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [
+        {
+            &quot;name&quot;: &quot;name&quot;,
+            &quot;desc&quot;: &quot;The name of the action.&quot;,
+            &quot;lua_type&quot;: &quot;string&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 53,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;inputTypes&quot;,
+            &quot;desc&quot;: &quot;The various input types that the action responds to.&quot;,
+            &quot;lua_type&quot;: &quot;InputTypes&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 60,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;inputState&quot;,
+            &quot;desc&quot;: &quot;A specific UserInputState that the callback responds to.\n\nBy default, the callback is called twice: once when the user starts\ninteracting, and again when they stop. This is because ContextActionService\ndoes not use `InputBegan` or `InputEnd` events like UserInputService. It\ntriggers the callback for both, and leaves it up to the user to filter out\nthe one they want.\n\nInstead of having to check `if input.UserInputState == Enum.UserInputState.Foo`\nin your callback, you can simply set this property.&quot;,
+            &quot;lua_type&quot;: &quot;Enum.UserInputState&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 76,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;priority&quot;,
+            &quot;desc&quot;: &quot;Sets the priority that ContextActionService will use for the action. By\ndefault this is `Enum.ContextActionPriority.Default.Value`&quot;,
+            &quot;lua_type&quot;: &quot;number&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 84,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        }
+    ],
+    &quot;types&quot;: [
+        {
+            &quot;name&quot;: &quot;InputTypes&quot;,
+            &quot;desc&quot;: &quot;Valid input types that can be used for an Action.&quot;,
+            &quot;lua_type&quot;: &quot;{ Enum.KeyCode | Enum.UserInputType | Enum.PlayerActions | string }&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 21,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;ActionCallback&quot;,
+            &quot;desc&quot;: &quot;Signature of the callback that will be run when the Action is triggered.&quot;,
+            &quot;lua_type&quot;: &quot;(InputObject) -&gt; nil&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 28,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;ActionObject&quot;,
+            &quot;desc&quot;: &quot;Properties that can be set when constructing an Action from an object.&quot;,
+            &quot;lua_type&quot;: &quot;{ name: string, priority: Enum.ContextActionPriority?, inputState: Enum.UserInputState?, inputTypes: { InputTypes }?, callback: ActionCallback?, }&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 35,
+                &quot;path&quot;: &quot;src/Action.lua&quot;
+            }
+        }
+    ],
+    &quot;name&quot;: &quot;Action&quot;,
+    &quot;desc&quot;: &quot;This is the class that wraps around ContextActionService to provide a better\nAPI to work with.\n\nYou should typically use `ContextControls.createAction()`, but you can also\ninstantiate an Action instance manually using `Action.new()` or\n`Action.fromObject()` which are documented below.&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 13,
+        &quot;path&quot;: &quot;src/Action.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_35-E thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#ActionCallback" class="table-of-contents__link toc-highlight">ActionCallback</a></li><li><a href="#ActionObject" class="table-of-contents__link toc-highlight">ActionObject</a></li><li><a href="#InputTypes" class="table-of-contents__link toc-highlight">InputTypes</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#inputState" class="table-of-contents__link toc-highlight">inputState</a></li><li><a href="#inputTypes" class="table-of-contents__link toc-highlight">inputTypes</a></li><li><a href="#name" class="table-of-contents__link toc-highlight">name</a></li><li><a href="#priority" class="table-of-contents__link toc-highlight">priority</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#addTrigger" class="table-of-contents__link toc-highlight">:addTrigger</a></li><li><a href="#bind" class="table-of-contents__link toc-highlight">:bind</a></li><li><a href="#bindAtPriority" class="table-of-contents__link toc-highlight">:bindAtPriority</a></li><li><a href="#setCallback" class="table-of-contents__link toc-highlight">:setCallback</a></li><li><a href="#setInputTypes" class="table-of-contents__link toc-highlight">:setInputTypes</a></li><li><a href="#unbind" class="table-of-contents__link toc-highlight">:unbind</a></li><li><a href="#fromObject" class="table-of-contents__link toc-highlight">.fromObject</a></li><li><a href="#new" class="table-of-contents__link toc-highlight">.new</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2021 vocksel. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/context-controls/assets/js/runtime~main.eecc9975.js"></script>
+<script src="/context-controls/assets/js/main.f9b04f20.js"></script>
+</body>
+</html>

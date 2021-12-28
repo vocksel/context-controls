@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[1],{97868:function(s){s.exports=JSON.parse('{"sourceUrl":"https://github.com/vocksel/context-controls/blob/master","baseUrl":"/context-controls/","classOrder":["ContextControls","Action"],"apiCategories":[]}')}}]);
