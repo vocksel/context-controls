@@ -1,8 +1,5 @@
 local ContextActionService = game:GetService("ContextActionService")
 
-local t = require(script.Parent.t)
-local types = require(script.Parent.types)
-
 --[=[
 	This is the class that wraps around ContextActionService to provide a better
 	API to work with.
@@ -15,6 +12,33 @@ local types = require(script.Parent.types)
 ]=]
 local Action = {}
 Action.__index = Action
+
+--[=[
+	Valid input types that can be used for an Action.
+	@type InputTypes { Enum.KeyCode | Enum.UserInputType | Enum.PlayerActions | string }
+	@within Action
+]=]
+export type InputTypes = { Enum.KeyCode | Enum.UserInputType | Enum.PlayerActions | string }
+
+--[=[
+	Signature of the callback that will be run when the Action is triggered.
+	@type ActionCallback (InputObject) -> nil
+	@within Action
+]=]
+export type ActionCallback = (InputObject) -> nil
+
+--[=[
+	Properties that can be set when constructing an Action from an object.
+	@type ActionObject { name: string, priority: Enum.ContextActionPriority?, inputState: Enum.UserInputState?, inputTypes: { InputTypes }?, callback: ActionCallback?, }
+	@within Action
+]=]
+export type ActionObject = {
+	name: string,
+	priority: Enum.ContextActionPriority?,
+	inputState: Enum.UserInputState?,
+	inputTypes: { InputTypes }?,
+	callback: ActionCallback?,
+}
 
 type Action = typeof(Action.new())
 
@@ -77,8 +101,6 @@ Action.contextActionServiceImpl = ContextActionService
 	```
 ]=]
 function Action.new(name: string): Action
-	assert(t.string(name))
-
 	local self = {
 		name = name,
 		priority = Enum.ContextActionPriority.Default.Value,
@@ -111,9 +133,7 @@ end
 	})
 	```
 ]=]
-function Action.fromObject(actionObject: types.ActionObject): Action
-	assert(types.ActionObject(actionObject))
-
+function Action.fromObject(actionObject: ActionObject): Action
 	local action = Action.new(actionObject.name)
 
 	-- Override properties in the action instance with the ones passed in by the
@@ -138,13 +158,10 @@ end
 	end)
 	```
 ]=]
-function Action:setCallback(callback: (InputObject) -> nil)
-	assert(t.callback(callback))
-
+function Action:setCallback(callback: ActionCallback)
 	self.callback = callback
 end
 
-local setInputTypesCheck = t.array(types.InputType)
 --[=[
 	Sets the input types that the action will be triggered for.
 
@@ -157,9 +174,7 @@ local setInputTypesCheck = t.array(types.InputType)
 	})
 	```
 ]=]
-function Action:setInputTypes(inputTypes: types.InputTypes)
-	assert(setInputTypesCheck(inputTypes))
-
+function Action:setInputTypes(inputTypes: InputTypes)
 	self.inputTypes = inputTypes
 end
 
@@ -182,8 +197,6 @@ end
 	```
 ]=]
 function Action:bindAtPriority(priority: Enum.ContextActionPriority | number)
-	assert(types.ActionPriority(priority))
-
 	assert(not self.isBound, ("%s is already bound and cannot be bound to again"):format(self.name))
 	assert(self.callback, "No callback found, run setCallback() first")
 	assert(self.inputTypes, "No input types found, run setInputTypes() first")
@@ -249,6 +262,11 @@ end
 	`setCallback()`. These methods are all handled automatically based on the
 	`PromptShown` and `PromptHidden` events of the ProximityPrompt.
 
+	:::caution
+	When using this method do not manually bind and unbind the action as this
+	can lead to the action getting unexpectedly stuck in bound/unbound states.
+	:::
+
 	```lua
 	local action = Action.new("foo")
 	action:setInputTypes(...)
@@ -260,11 +278,6 @@ end
 
 	You can add as many triggers as you want for the same action, and they will
 	all take control of binding and unbinding it.
-
-	:::caution
-	When using this method do not manually bind and unbind the action as this
-	can lead to the action getting unexpectedly stuck in bound/unbound states.
-	:::
 ]=]
 function Action:addTrigger(trigger: ProximityPrompt, callback: () -> nil)
 	trigger.PromptShown:Connect(function()

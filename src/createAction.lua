@@ -1,5 +1,4 @@
 local Action = require(script.Parent.Action)
-local types = require(script.Parent.types)
 
 --[=[
 	Constructs an Action from a table of properties. This allows you to setup
@@ -22,8 +21,7 @@ local types = require(script.Parent.types)
 	@within ContextControls
 	@return Action
 ]=]
-local function createAction(actionObject: types.ActionObject)
-	assert(types.ActionObject(actionObject))
+local function createAction(actionObject: Action.ActionObject)
 	return Action.fromObject(actionObject)
 end
 
