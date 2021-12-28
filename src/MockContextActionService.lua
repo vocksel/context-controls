@@ -6,9 +6,6 @@
 	certain everything will work in a live game.
 ]]
 
-local t = require(script.Parent.t)
-local types = require(script.Parent.types)
-
 local MockContextActionService = {
 	_actions = {},
 }
@@ -41,10 +38,7 @@ function MockContextActionService:GetActionsForInputType(inputType)
 	return actions
 end
 
-local SimulateInputCheck = t.tuple(types.InputType, t.optional(t.array(t.enum(Enum.UserInputState))))
-function MockContextActionService:SimulateInput(inputType, inputStates)
-	assert(SimulateInputCheck(inputType, inputStates))
-
+function MockContextActionService:SimulateInput(inputType: any, inputStates: Enum.UserInputState)
 	inputStates = inputStates or {
 		Enum.UserInputState.Begin,
 		Enum.UserInputState.End,
@@ -64,15 +58,11 @@ function MockContextActionService:SimulateInput(inputType, inputStates)
 	end
 end
 
-function MockContextActionService:SimulateInputBegin(inputType)
-	assert(types.InputType(inputType))
-
+function MockContextActionService:SimulateInputBegin(inputType: any)
 	self:SimulateInput(inputType, { Enum.UserInputState.Begin })
 end
 
-function MockContextActionService:SimulateInputEnd(inputType)
-	assert(types.InputType(inputType))
-
+function MockContextActionService:SimulateInputEnd(inputType: any)
 	self:SimulateInput(inputType, { Enum.UserInputState.End })
 end
 

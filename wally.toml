@@ -1,6 +1,6 @@
 [package]
 name = "vocksel/context-controls"
-description = "Wrapper for ContextActionService with an easy to use API "
+description = "Wrapper around ContextActionService that provides a clean API for creating and binding actions"
 version = "1.0.0"
 authors = [ "David Minnerly <me@vocksel.com>" ]
 license = "MIT"
@@ -11,5 +11,5 @@ exclude = [
 	"**/Mock*"
 ]
 
-[dev-dependencies]
+[dependencies]
 TestEZ = "roblox/testez@0.4.1"

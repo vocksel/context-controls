@@ -1,0 +1,10 @@
+classOrder = [
+	"ContextControls",
+	"Action",
+]
+
+[home]
+enabled = true
+
+[docusaurus]
+tagline = "Wrapper around ContextActionService that provides a clean API for creating and binding actions"
