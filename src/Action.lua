@@ -86,7 +86,6 @@ function Action.new(name: string): Action
 		inputState = nil,
 		callback = nil,
 		inputTypes = nil,
-		mobileButton = nil,
 	}
 
 	return setmetatable(self, Action)
@@ -162,13 +161,6 @@ function Action:setInputTypes(inputTypes: types.InputTypes)
 	assert(setInputTypesCheck(inputTypes))
 
 	self.inputTypes = inputTypes
-end
-
-local setMobileButtonCheck = t.instanceIsA("GuiButton")
-function Action:setMobileButton(mobileButton)
-	assert(setMobileButtonCheck(mobileButton))
-
-	self.mobileButton = mobileButton
 end
 
 --[=[

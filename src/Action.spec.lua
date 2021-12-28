@@ -13,7 +13,6 @@ return function()
 		Enum.KeyCode.E,
 		Enum.KeyCode.ButtonB,
 	}
-	local MOCK_MOBILE_BUTTON = Instance.new("ImageButton")
 
 	-- This is for use with GetBoundActionInfo. Apparently an empty table is
 	-- returned even if the action has never been bound! cool!
@@ -46,13 +45,11 @@ return function()
 		it("should create a new Action from an object", function()
 			local action = Action.fromObject({
 				name = "foo",
-				mobileButton = MOCK_MOBILE_BUTTON,
 				callback = MOCK_CALLBACK,
 				inputTypes = MOCK_INPUT_TYPES,
 			})
 
 			expect(action.name).to.equal("foo")
-			expect(action.mobileButton).to.equal(MOCK_MOBILE_BUTTON)
 			expect(action.callback).to.equal(MOCK_CALLBACK)
 			expect(action.inputTypes).equal(MOCK_INPUT_TYPES)
 		end)
@@ -77,17 +74,6 @@ return function()
 			expect(action.inputTypes).to.equal(MOCK_INPUT_TYPES)
 		end)
 	end)
-
-	-- describe("setMobileButton", function()
-	-- 	it("should set properties for the mobile button", function()
-	-- 		local action = Action.new("foo")
-
-	-- 		action:setMobileButton(MOCK_MOBILE_BUTTON, MOCK_MOBILE_BUTTON.Activated)
-
-	-- 		expect(action.mobileButton).to.equal(MOCK_MOBILE_BUTTON)
-	-- 		expect(action.mobileEvent).to.equal(MOCK_MOBILE_BUTTON.Activated)
-	-- 	end)
-	-- end)
 
 	describe("bindAtPriority", function()
 		it("should register the action with ContextActionService", function()
