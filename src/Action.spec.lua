@@ -30,18 +30,6 @@ return function()
 	end)
 
 	describe("fromObject", function()
-		it("should only require the name field", function()
-			expect(function()
-				Action.fromObject({
-					name = "foo",
-				})
-			end).to.never.throw()
-
-			expect(function()
-				Action.fromObject({})
-			end).to.throw()
-		end)
-
 		it("should create a new Action from an object", function()
 			local action = Action.fromObject({
 				name = "foo",
