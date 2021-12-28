@@ -9,3 +9,7 @@ roblox.toml
 /Packages
 /DevPackages
 wally.lock
+
+# Moonwave
+node_modules/
+build/

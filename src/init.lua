@@ -1,3 +1,10 @@
+--[=[
+	@class ContextControls
+
+	ContextControls provides a wrapper around `ContextActionService` that offers
+	a cleaner API for creating and binding actions, along with flexible mobile
+	button support.
+]=]
 return {
 	Action = require(script.Action),
 	createAction = require(script.createAction),
